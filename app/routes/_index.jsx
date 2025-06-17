@@ -16,11 +16,10 @@ export const meta = () => {
 
 export const loader = async ({request}) => {
   const token = await getTokenFromCookie(request);
-  const logged = token ? true : false
   if (!token) return redirect("/logout"); // Consider redirecting to /login or /welcome if not logged in
   let id = await getUserFromToken(token);
   return Response.json({
-    logged,
+    
     id
   })
 }
