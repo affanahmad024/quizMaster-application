@@ -8,6 +8,10 @@ export const cookieStore = createCookie("cookieStore", {
 
 export const getTokenFromCookie = async (request) => {
   const cookiesHeader = await request.headers.get("Cookie");
+  if (!cookiesHeader) {
+    console.log('getTokenFromCookie: No Cookie header found. Returning null.');
+    return null;
+  }
   const { token } = await cookieStore.parse(cookiesHeader);
 
   return token;
