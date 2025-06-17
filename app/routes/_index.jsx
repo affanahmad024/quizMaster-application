@@ -25,7 +25,7 @@ export const loader = async ({request}) => {
 }
 
 export default function Index() {
-  const {logged, id} = useLoaderData()
+  const { id} = useLoaderData()
 
   useEffect(() => {
     // Select all elements that should animate in
@@ -40,7 +40,7 @@ export default function Index() {
   return (
     // Main container with dark theme, smooth text rendering, and a subtle gradient
     <div className="bg-gradient-to-br from-gray-950 to-gray-800 text-gray-100 min-h-screen flex flex-col font-sans antialiased overflow-hidden">
-      <Header logged={logged} userId={id} />
+      <Header userId={id} />
       <main className="flex-grow"> {/* Added main tag for semantic structure */}
         <HeroSection />
         <FeaturesSection />
