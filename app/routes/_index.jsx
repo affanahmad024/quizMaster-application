@@ -16,6 +16,7 @@ export const meta = () => {
 
 export const loader = async ({request}) => {
   const token = await getTokenFromCookie(request);
+  console.log("token" , token)
   if (!token) return redirect("/logout"); // Consider redirecting to /login or /welcome if not logged in
   let id = await getUserFromToken(token);
   return Response.json({
